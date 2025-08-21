@@ -70,3 +70,10 @@ config-local.properties
 # Logs
 *.log
 logs/
+
+# Allure
+.allure/
+allure-results/
+allure-report/
+
+.idea
