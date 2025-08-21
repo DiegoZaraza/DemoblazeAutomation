@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="DemoblazeTestSuite" verbose="1">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="baseUrl" value="https://www.demoblaze.com/"/>
+
+    <listeners>
+        <listener class-name="com.demoblaze.listeners.ExtentReportListener"/>
+        <listener class-name="com.demoblaze.listeners.ScreenshotListener"/>
+    </listeners>
+
+    <test name="LoginTests">
+        <classes>
+            <class name="com.demoblaze.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="CategoryTests">
+        <classes>
+            <class name="com.demoblaze.tests.CategoryTest"/>
+        </classes>
+    </test>
+
+    <test name="PurchaseTests">
+        <classes>
+            <class name="com.demoblaze.tests.PurchaseTest"/>
+        </classes>
+    </test>
+
+    <test name="ProfileTests">
+        <classes>
+            <class name="com.demoblaze.tests.ProfileTest"/>
+        </classes>
+    </test>
+
+    <test name="ExtendedTests">
+        <classes>
+            <class name="com.demoblaze.tests.ExtendedTest"/>
+        </classes>
+    </test>
+</suite>
