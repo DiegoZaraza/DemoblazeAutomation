@@ -79,6 +79,36 @@ mvn test -Dtest=LoginTest#testValidLogin
 # Multiple methods
 mvn test -Dtest=LoginTest#testValidLogin,LoginTest#testInvalidLogin
 ```
+### Allure Reports (Enhanced Interactive Reports)
+
+#### Generate Allure Results
+```bash
+# Run tests to generate Allure results
+mvn clean test
+
+# Allure results are saved in: target/allure-results/
+```
+
+#### View Allure Report
+```bash
+# Method 1: Generate and serve report locally
+allure serve target/allure-results
+
+# Method 2: Generate report to specific directory
+allure generate target/allure-results --output target/allure-report --clean
+
+# Method 3: Open generated report
+allure open target/allure-report
+```
+
+#### Allure with Maven
+```bash
+# Generate Allure report using Maven plugin
+mvn allure:report
+
+# Serve Allure report using Maven
+mvn allure:serve
+```
 
 ## 📁 Project Structure
 
