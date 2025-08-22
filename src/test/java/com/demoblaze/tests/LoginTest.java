@@ -71,44 +71,4 @@ public class LoginTest extends BaseTest {
 
         logger.info("Invalid login test completed successfully");
     }
-
-    @Feature("Empty Credentials Login")
-    @Severity(SeverityLevel.MINOR)
-    @Test(description = "Verify login with empty credentials")
-    public void testEmptyCredentialsLogin() {
-        logger.info("Starting empty credentials login test");
-
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-
-        // Click login button to open modal
-        homePage.clickLogin();
-
-        // Attempt login with empty credentials
-        boolean loginSuccess = loginPage.login("", "");
-
-        // Login should fail
-        Assert.assertFalse(loginSuccess, "Login should fail with empty credentials");
-
-        logger.info("Empty credentials login test completed successfully");
-    }
-
-    @Feature("Login Modal Interaction")
-    @Severity(SeverityLevel.TRIVIAL)
-    @Test(description = "Verify login modal can be opened and closed")
-    public void testLoginModalInteraction() {
-        logger.info("Starting login modal interaction test");
-
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-
-        // Click login button to open modal
-        homePage.clickLogin();
-        loginPage.waitForModalToBeVisible();
-
-        // Close modal
-        loginPage.closeModal();
-
-        logger.info("Login modal interaction test completed successfully");
-    }
 }

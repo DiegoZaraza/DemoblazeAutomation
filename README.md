@@ -46,15 +46,6 @@ mvn test -Dbrowser=edge
 mvn test -Dheadless=true
 ```
 
-### Ejecutar perfiles específicos
-```bash
-# Perfil headless
-mvn test -P headless
-
-# Perfil Firefox
-mvn test -P firefox
-```
-
 ### Ejecutar pruebas específicas
 ```bash
 # Solo pruebas de login

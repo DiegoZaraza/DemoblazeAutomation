@@ -31,7 +31,7 @@ public class CartPage {
     @FindBy(xpath = "//button[contains(text(),'Place Order')]")
     private WebElement placeOrderButton;
 
-    @FindBy(css = "a:contains('Delete')")
+    @FindBy(xpath = "//a[text()='Delete']")
     private List<WebElement> deleteButtons;
 
     // Order Modal Elements
@@ -77,7 +77,12 @@ public class CartPage {
 
     public void waitForCartToLoad() {
         logger.info("Waiting for cart page to load");
-        wait.until(ExpectedConditions.elementToBeClickable(placeOrderButton));
+        wait.until(ExpectedConditions.visibilityOfAllElements(cartItems));
+    }
+
+    public void waitForCartEmptyToLoad() {
+        logger.info("Waiting for empty cart page to load");
+        wait.until(ExpectedConditions.visibilityOfAllElements(placeOrderButton));
     }
 
     public int getCartItemCount() {
@@ -122,7 +127,7 @@ public class CartPage {
     }
 
     public boolean hasItems() {
-        waitForCartToLoad();
+        waitForCartEmptyToLoad();
         boolean hasItems = getCartItemCount() > 0;
         logger.info("Cart has items: {}", hasItems);
         return hasItems;
@@ -132,12 +137,6 @@ public class CartPage {
         if (!deleteButtons.isEmpty()) {
             logger.info("Deleting first item from cart");
             deleteButtons.get(0).click();
-            // Wait a moment for the item to be removed
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
         } else {
             logger.warn("No items to delete from cart");
         }

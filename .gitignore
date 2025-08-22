@@ -76,4 +76,5 @@ logs/
 allure-results/
 allure-report/
 
+# IntelliJ IDEA specific
 .idea

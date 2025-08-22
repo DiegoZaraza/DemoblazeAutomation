@@ -17,6 +17,9 @@ public class HomePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    @FindBy(xpath = "//a[text()='Home ']")
+    private WebElement homeLink;
+
     @FindBy(id = "login2")
     private WebElement loginButton;
 
@@ -49,6 +52,11 @@ public class HomePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
         logger.info("HomePage initialized");
+    }
+
+    public void goToHome() {
+        logger.info("Navigating to home page");
+        wait.until(ExpectedConditions.elementToBeClickable(homeLink)).click();
     }
 
     public void clickLogin() {
